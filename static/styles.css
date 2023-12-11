@@ -1,0 +1,46 @@
+
+    /* Existing styles... */
+
+    /* Star and Lightning Effects */
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        box-shadow: 0 0 5px #fff;
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+        }
+    }
+
+    .lightning {
+        position: absolute;
+        width: 2px;
+        height: 100px;
+        background: yellow;
+        animation: lightning linear infinite;
+    }
+
+    @keyframes lightning {
+        0% { transform: translateY(-100px); }
+        100% { transform: translateY(100vh); }
+    }
+
+    .flying-broom {
+        position: absolute;
+        width: 150px; /* Adjust as needed */
+        top: 20%; /* Starting position */
+        animation: flyBroom 10s linear infinite;
+    }
+    
+    @keyframes flyBroom {
+        0% { left: -150px; transform: rotate(0deg); }
+        50% { left: 100%; transform: rotate(360deg); }
+        100% { left: -150px; transform: rotate(0deg); }
+    }
+    
+    
