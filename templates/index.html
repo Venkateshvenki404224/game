@@ -1,25 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaultbreakers: The Ultimate Heist Challenge</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <title>{{ story['title'] }} - Harry Potter Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #FFF;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: #900;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #FFF;
+            color: #900;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <!-- particles.js container -->
     <div class="container">
-        <div id="particles-js"></div>
-            <h1>The Ultimate Decision Game</h1>
-            <p>{{ scenario.text }}</p>
-            <form action="/{{ scenario.id }}" method="post">
-                <button type="submit" name="option" value="A">{{ scenario.option_a }}</button>
-                <button type="submit" name="option" value="B">{{ scenario.option_b }}</button>
-            </form>
+        <h1>{{ story['title'] }}</h1>
+        <p>{{ story['content']['introduction'] }}</p>
+        <form action="/" method="post">
+            {% for key, value in story['content']['choices'].items() %}
+                <button type="submit" name="choice" value="{{ value['next_story'] }}">{{ key }}</button>
+            {% endfor %}
+        </form>
     </div>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
